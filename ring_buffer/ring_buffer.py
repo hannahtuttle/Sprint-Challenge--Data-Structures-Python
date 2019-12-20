@@ -18,34 +18,9 @@ class RingBuffer:
                 # print('checking value after next',self.current.value)
                 self.storage.remove_from_head()    
                 self.storage.add_to_head(item)
-
-            elif self.current == self.storage.head.next:
-                self.current = self.storage.head.next.next
-                self.storage.add_to_head(item)
-                self.storage.move_to_front(self.current.prev)
-                self.storage.remove_from_head()
-                self.storage.move_to_front(self.storage.head.next)
-
-            elif self.current == self.storage.head.next.next:
-                self.current = self.storage.head.next.next.next
-                self.storage.add_to_head(item)
-                self.storage.move_to_front(self.current.prev)
-                self.storage.remove_from_head()
-                self.storage.move_to_front(self.storage.head.next)
-                self.storage.move_to_front(self.storage.head.next.next)
-                self.storage.move_to_front(self.storage.head.next)
-            elif self.current == self.storage.head.next.next.next:
-                self.current = self.storage.head.next.next.next.next
-                self.storage.add_to_head(item)
-                self.storage.move_to_front(self.current.prev)
-                self.storage.remove_from_head()
-                self.storage.move_to_front(self.storage.head.next)
-                self.storage.move_to_front(self.storage.head.next.next)
-                self.storage.move_to_front(self.storage.head.next)
-                self.storage.move_to_front(self.storage.head.next.next.next)
-                self.storage.move_to_front(self.storage.head.next)
-                self.storage.move_to_front(self.storage.head.next.next)
-                self.storage.move_to_front(self.storage.head.next)
+            elif self.current != self.storage.head and self.current != self.storage.tail:
+                self.current.value = item
+                self.current = self.current.next
             elif self.current == self.storage.tail:
                 self.current = self.storage.head
                 self.storage.remove_from_tail()

@@ -40,10 +40,10 @@ class RingBufferTests(unittest.TestCase):
         self.assertEqual(self.buffer_2.get(), [45, 46, 47, 48, 49])
 
 
-class ArrayRingBufferTests(unittest.TestCase):
-    def setUp(self):
-        self.buffer = ArrayRingBuffer(5)
-        self.buffer_2 = ArrayRingBuffer(5)
+# class ArrayRingBufferTests(unittest.TestCase):
+#     def setUp(self):
+#         self.buffer = ArrayRingBuffer(5)
+#         self.buffer_2 = ArrayRingBuffer(5)
 
     # def test__array_ring_buffer(self):
     #     self.assertEqual(len(self.buffer.storage), 5)
